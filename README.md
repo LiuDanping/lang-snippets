@@ -1,4 +1,2 @@
 # lang-snippets
-just some code snippets
-
-include some languages.
+just some code snippets include some languages.
