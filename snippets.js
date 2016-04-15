@@ -14,3 +14,25 @@ function readCookie(name) {
     }
     return null;
 }       
+
+#自动补全
+function fix(oldItem,fixStr,len,type){  //type: left right 默认是left
+    if(typeof oldItem == 'object') return '';
+    var type = type || 'left';
+    var oldStr = oldItem.toString();
+    var strLen = oldStr.length;
+    var arr = new Array(strLen);
+    for(var i = 0; i < strLen; i++){
+        arr[i] = oldStr[i];
+    }
+    var typeFun = null;
+    if(type=='left'){
+        typeFun = Array.prototype.unshift;
+    }else if(type=='right'){
+        typeFun = Array.prototype.push;
+    }
+    for(var j = 0; j < len - strLen; j++){
+        typeFun.call(arr,fixStr);
+    }
+    return arr.join('');
+}
