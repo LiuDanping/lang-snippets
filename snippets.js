@@ -21,10 +21,7 @@ function fix(oldItem,fixStr,len,type){  //type: left right 默认是left
     var type = type || 'left';
     var oldStr = oldItem.toString();
     var strLen = oldStr.length;
-    var arr = new Array(strLen);
-    for(var i = 0; i < strLen; i++){
-        arr[i] = oldStr[i];
-    }
+    var arr = oldStr.split('');
     var typeFun = null;
     if(type=='left'){
         typeFun = Array.prototype.unshift;
